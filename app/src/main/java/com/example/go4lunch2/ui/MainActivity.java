@@ -1,9 +1,10 @@
-package com.example.go4lunch2;
+package com.example.go4lunch2.ui;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.go4lunch2.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 

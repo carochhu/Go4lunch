@@ -5,15 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_login_activity"
-    tools:context=".ui.LoginActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo_"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/margin_logo"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".ui.LoginActivity"/>
