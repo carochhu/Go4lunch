@@ -1,16 +1,16 @@
-package com.example.go4lunch2.ui.gallery;
+package com.example.go4lunch2.ui.logout;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class LogoutViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public LogoutViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {

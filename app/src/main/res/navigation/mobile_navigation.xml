@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/your_lunch"
-        android:name="com.example.go4lunch2.ui.home.HomeFragment"
+        android:name="com.example.go4lunch2.ui.settings.SettingsFragment"
         android:label="@string/menu_one"
         tools:layout="@layout/fragment_your_lunch" />
 
     <fragment
         android:id="@+id/settings"
-        android:name="com.example.go4lunch2.ui.gallery.GalleryFragment"
+        android:name="com.example.go4lunch2.ui.yourLunch.YourLunchFragment"
         android:label="@string/menu_two"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/logout"
-        android:name="com.example.go4lunch2.ui.slideshow.SlideshowFragment"
+        android:name="com.example.go4lunch2.ui.logout.LogoutFragment"
         android:label="@string/menu_three"
         tools:layout="@layout/fragment_logout" />
 </navigation>
