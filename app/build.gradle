@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.go4lunch2"
         minSdk 21
-        targetSdk 32
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -22,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -50,5 +51,10 @@ dependencies {
 
     // FIREBASE UI
     // Import the BoM for the Firebase platform
-    implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    //implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
+
+    //implementation 'com.facebook.android:facebook-android-sdk:5.13.0'
+    implementation 'com.facebook.android:facebook-android-sdk:8.+'
+
 }

@@ -17,7 +17,7 @@
     <!-- BACKGROUND -->
     <color name="background_light">#DDA0DD</color>
     <color name="background_gray">#eeeeee</color>
-    <color name="background_login_activity">#333333</color>
+    <color name="background_login_activity">#000000</color>
 
     <!-- BUTTON -->
     <color name="button_favorite">#F06292</color>
