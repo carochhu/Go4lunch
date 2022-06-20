@@ -28,11 +28,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setupListeners();
+        userLogged();
     }
 
-    private void setupListeners(){
-        // Login/Profile Button
+    private void userLogged(){
         if(userManager.isCurrentUserLogged()){
                 startMainActivity();
             }else{
@@ -87,9 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response == null) {
                     showSnackBar(getString(R.string.error_authentication_canceled));
                 } else if (response.getError()!= null) {
-                    if(response.getError().getErrorCode() == ErrorCodes.NO_NETWORK){
-                        showSnackBar(getString(R.string.error_no_internet));
-                    } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+                    if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
                         showSnackBar(getString(R.string.error_unknown_error));
                     }
                 }
