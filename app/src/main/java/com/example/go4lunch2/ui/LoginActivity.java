@@ -9,14 +9,14 @@ import com.firebase.ui.auth.AuthUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.widget.Toast;
 
 import com.example.go4lunch2.R;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,14 +28,26 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        userLogged();
     }
 
-    private void userLogged(){
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setupListeners();
+    }
+
+    private void setupListeners(){
+        // Login/Profile Button
         if(userManager.isCurrentUserLogged()){
                 startMainActivity();
             }else{
-                startSignInActivity();
+                new Handler().postDelayed(new Runnable(){
+                    @Override
+                    public void run() {
+                        startSignInActivity();
+                    }
+                },500);
+
             }
         };
     // Launching Main Activity
@@ -68,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // Show Snack Bar with a message
-    private void showSnackBar( String message){
-        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
+    private void showToast(String message){
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     // Method that handles response after SignIn Activity close
@@ -80,17 +92,24 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             // SUCCESS
             if (resultCode == RESULT_OK) {
-                showSnackBar(getString(R.string.connection_succeed));
+                showToast(getString(R.string.connection_succeed));
+                //start mainA
             } else {
                 // ERRORS
                 if (response == null) {
-                    showSnackBar(getString(R.string.error_authentication_canceled));
+                    showToast(getString(R.string.error_authentication_canceled));
                 } else if (response.getError()!= null) {
-                    if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
-                        showSnackBar(getString(R.string.error_unknown_error));
+                    if(response.getError().getErrorCode() == ErrorCodes.NO_NETWORK){
+                        showToast(getString(R.string.error_no_internet));
+                    } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+                        showToast(getString(R.string.error_unknown_error));
+                    } else{
+                        showToast(getString(R.string.error_unknown_error));
                     }
                 }
             }
         }
     }
+
+
 }

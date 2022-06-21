@@ -23,5 +23,9 @@
 
     <style name="Theme.Go4lunch2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
+    <style name="Theme.Go4lunch2.Splashscreen">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/background_login_activity</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@drawable/logo_</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1500</item>
+    </style>
 </resources>
